@@ -1,5 +1,5 @@
 var http = require('http');
-var port = 8001;
+var port = process.env.PORT || 8001;
 var Twitter = require('twitter');
 var url = require('url');
 var keyWord;
