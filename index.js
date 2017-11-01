@@ -35,7 +35,7 @@ http.createServer(function (request, response) {
 }).listen(port);
 
 // Console will print the message
-console.log('Server running at http://127.0.0.1:' + port);
+console.log('Server running on port:' + port);
 
 var client = new Twitter({
   consumer_key: 'BqltzwfnkpvX0t35iBKwhA9ra',
