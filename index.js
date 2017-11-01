@@ -1,5 +1,5 @@
 var http = require('http');
-var port = process.env.PORT || 8001;
+var port = process.env.PORT || 5000;
 var Twitter = require('twitter');
 var url = require('url');
 var keyWord;
@@ -32,7 +32,7 @@ http.createServer(function (request, response) {
         response.end(output);
     }
 
-}).listen(port);
+}).listen(process.env.PORT || 5000);
 
 // Console will print the message
 console.log('Server running on port:' + port);
