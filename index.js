@@ -22,7 +22,9 @@ http.createServer(function (request, response) {
 
 
     // Send the response body as "Hello World"
-    getTweets(respond, parsed);
+    if(parsed !== null && parsed !== undefined){
+        getTweets(respond, parsed);
+    }
 
     function respond(r){
         var output = '';
