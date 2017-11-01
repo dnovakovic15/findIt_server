@@ -26,6 +26,9 @@ http.createServer(function (request, response) {
         console.log('parsed: ' + parsed); 
         getTweets(respond, parsed);
     }
+    else{
+        response.end('Please input a destination!');
+    }
 
     function respond(r){
         var output = '';
