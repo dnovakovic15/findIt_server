@@ -32,7 +32,7 @@ http.createServer(function (request, response) {
     }
 
     function respond(r){
-        if(r.length !== undefined){
+        if(r !== undefined){
             var output = '';
             for(var i = 0; i < r.length; i++){
                 output = output + ",break," + r[i];
