@@ -22,20 +22,26 @@ http.createServer(function (request, response) {
 
 
     // Send the response body as "Hello World"
-    if(parsed.length > 3){
+    if(parsed.length > 3 && parsed != '101'){
         console.log('parsed: ' + parsed); 
         getTweets(respond, parsed);
     }
     else{
-        response.end('Please input a destination!');
+        console.log('Sending Text Message...');
+        sendText(respond);
     }
 
     function respond(r){
-        var output = '';
-        for(var i = 0; i < r.length; i++){
-            output = output + ",break," + r[i];
+        if(r.length > 1){
+            var output = '';
+            for(var i = 0; i < r.length; i++){
+                output = output + ",break," + r[i];
+            }
+            response.end(output);
         }
-        response.end(output);
+        else{
+            response.end('testing........')
+        }
     }
 
 }).listen(process.env.PORT || 5000);
@@ -59,4 +65,9 @@ function getTweets(callback, keyWord){
         }
         callback(myTweets);
     });
+}
+
+function sendText(callback){
+    console.log('Sending Text Message...');
+    callback();
 }
