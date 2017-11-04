@@ -2,6 +2,7 @@ var http = require('http');
 var port = process.env.PORT || 5000;
 var Twitter = require('twitter');
 var url = require('url');
+var springedge = require('springedge');
 var keyWord;
 
 http.createServer(function (request, response) {
@@ -69,5 +70,22 @@ function getTweets(callback, keyWord){
 
 function sendText(callback){
     console.log('Sending Text Message...');
+
+    var params = {
+        'apikey': '', // API Key 
+        'sender': 'SEDEMO', // Sender Name 
+        'to': [
+            '919019xxxxxxxx'  //Moblie Number 
+        ],
+        'message': 'test+message'
+        };
+
+        springedge.messages.send(params, 5000, function (err, response) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(response);
+        });
+
     callback();
 }
